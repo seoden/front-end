@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12.01_FSTK(О)_Denys_Opanasyuk_HTML_HomeWork3</title>
+	
+<style> 
+* {
+	margin: 0;
+	padding: 0;
+}
+.wrapper {
+	width: 800px;
+	margin: 0 auto;
+	/*perspective: 400px;*/
+}
+.box {
+width:150px;
+height: 150px;
+margin: 20px 5px 0;
+float: left;
+transition: all 1s;
+position:relative;
+backface-visibility: hidden;
+transform-style: preserve-3d;
+}
+.boxin{
+position:absolute;
+top: 0;
+bottom: 0;
+width:100%;
+backface-visibility: hidden;
+transform-style: preserve-3d;
+}
+.face {
+background: steelblue;
+}
+.back {
+background: green;
+}
+
+.rotateX:hover {
+transform: rotateX(180deg);
+}
+.rotateX .back {
+transform: rotateX(180deg);
+}
+
+.rotateY:hover {
+transform: rotateY(180deg);
+}
+.rotateY .back {
+transform: rotateY(180deg);
+}
+
+.rotate-X:hover {
+transform: rotateX(-180deg) rotate(60deg);
+}
+.rotate-X .back {
+transform: rotateX(-180deg) rotate(60deg);
+}
+
+.rotate-Y:hover {
+transform: rotateY(-180deg) rotate(-60deg);
+}
+.rotate-Y .back {
+transform: rotateY(-180deg) rotate(-60deg);
+}
+
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+
+
+
+
+<div class="box rotateX">
+<div class="boxin face">111</div>
+<div class="boxin back">222</div>
+</div>
+
+<div class="box rotateY">
+<div class="boxin face">333</div>
+<div class="boxin back">444</div>
+</div>
+
+<div class="box rotate-X">
+<div class="boxin face">555</div>
+<div class="boxin back">666</div>
+</div>
+
+<div class="box rotate-Y">
+<div class="boxin face">777</div>
+<div class="boxin back">888</div>
+</div>
+
+
+
+</div>
+</body>
+</html>

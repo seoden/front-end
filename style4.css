@@ -1,0 +1,53 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.header, .footer{
+	text-align: center;
+	padding: 30px;
+	background-color: #BBBBBB;
+}
+.main{
+	background-color: #DDDDDD;
+	padding: 20px 0;
+}
+.container {
+  background-color: #000080;
+  padding: 30px;
+  display: flex; /* flex or inline-flex */
+  flex-direction: row;  /* row(default) | low-reverse | column | column-reverse*/
+  flex-wrap: wrap; /* nowrap(default) | wrap | wrap-reverse*/
+  /*flex-flow: ; /*<‘flex-direction’> || <‘flex-wrap’>*/
+  justify-content: center;/*flex-start(default) | flex-end | center | space-between | space-around*/
+  align-items: ;/*flex-start | flex-end | center | baseline | stretch(default)*/
+  align-content: ;/*flex-start | flex-end | center | space-between | space-around | stretch(default)*/
+}
+.item {
+  height: 50px;
+  /*order: 0; /*<integer>*/
+  /*flex-grow: 0; /*<number>   default 0  растяжение*/ 
+  /*flex-shrink: 1; /*<number>   default 1 сужение*/
+  /*flex-basis:33% ; /*<length> | auto   default auto */
+  /*flex: ;  /*none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]*/
+  /*align-self: ;/*auto | flex-start | flex-end | center | baseline | stretch*/
+}
+.item1{
+  background-color: #F08080;
+  width:33.333%;
+}
+.item2{
+  background-color: #8A2BE2;
+  width:33.333%;
+}
+.item3{
+  background-color: #A52A2A;
+  width:33.333%;
+}
+.item4{
+  background-color: #20B2AA;
+  width:50%;
+}
+.item5{
+  background-color: #4169E1;
+  width:50%;
+}

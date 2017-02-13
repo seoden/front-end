@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12.01_FSTK(О) - Денис Опанасюк - Домашнее задание №2 - HTML</title>
+	<style>
+.texts p:first-child{
+  font-weight:600;
+}
+.texts p:first-child b{
+  font-weight:400;
+}
+.texts p:nth-child(2){
+font-style: italic;  
+}
+.texts p:nth-child(2) i{
+font-style: normal;  
+}
+.smile{
+width:100px;
+height:100px;
+background-color: yellow;
+border-radius:50%;
+position: relative;
+}
+.eye {
+width:14px;
+height:14px;
+background-color: black;
+border-radius:50%;
+}
+.eye-left {
+position: absolute;
+top:25px;
+left: 25px;
+}
+.eye-right {
+position: absolute;
+top:25px;
+right: 25px;
+}
+.mouth{
+  width:30px;
+  height:10px;
+  background-color: black;
+  position: absolute;
+  bottom:25px;
+  right: 35px;
+}
+
+.list li {
+position:relative;
+list-style:none;
+}
+.list li:before {
+content: ' ';
+display: block;
+position: absolute;
+top: 0;
+right: 100%;
+width:0px;
+height:0px;
+border-width:5px;
+border-style: solid;
+border-color: transparent transparent green;
+box-sizing: border-box;
+margin: 0.2em 0.35em 0em 0em; 
+}
+
+.bord {
+display: none;
+width:0px;
+height:0px;
+border-width:5px;
+border-style: solid;
+border-color: transparent transparent green;
+box-sizing: border-box;
+}
+	</style>
+</head>
+<body>
+	
+	
+<div class="texts">
+	<p>Lorem ipsum <b>dolor sit amet</b>.</p>
+	<p>Lorem ipsum <i>dolor sit amet</i>.</p>
+</div>
+
+<div class="smile">
+	<div class="eye  eye-left"></div>
+	<div class="eye  eye-right"></div>
+	<div class="mouth"></div>
+</div>
+
+<div class="list">
+<ul>
+	<li>Li #1</li>
+	<li>Li #2</li>
+	<li>Li #3</li>
+</ul>
+</div>
+
+<div class="bord"></div>
+	
+	
+</body>
+</html>
+
