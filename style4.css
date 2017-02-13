@@ -3,6 +3,7 @@
 	padding: 0;
 }
 .header, .footer{
+	font-size: 22px;
 	text-align: center;
 	padding: 30px;
 	background-color: #BBBBBB;
@@ -19,11 +20,14 @@
   flex-wrap: wrap; /* nowrap(default) | wrap | wrap-reverse*/
   /*flex-flow: ; /*<‘flex-direction’> || <‘flex-wrap’>*/
   justify-content: center;/*flex-start(default) | flex-end | center | space-between | space-around*/
-  align-items: ;/*flex-start | flex-end | center | baseline | stretch(default)*/
-  align-content: ;/*flex-start | flex-end | center | space-between | space-around | stretch(default)*/
+  align-items: center;/*flex-start | flex-end | center | baseline | stretch(default)*/
+  align-content: center;/*flex-start | flex-end | center | space-between | space-around | stretch(default)*/
 }
 .item {
-  height: 50px;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 38px 0;
+    text-align: center;
   /*order: 0; /*<integer>*/
   /*flex-grow: 0; /*<number>   default 0  растяжение*/ 
   /*flex-shrink: 1; /*<number>   default 1 сужение*/
@@ -50,4 +54,22 @@
 .item5{
   background-color: #4169E1;
   width:50%;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+	.item1, .item2, .item3, .item5{
+		width:50%;
+	}
+	.item4{
+		order: 1;
+		width:100%;
+	}
+	
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.item1, .item2, .item3, .item4, .item5{
+		width:100%;
+	}
+	
 }
