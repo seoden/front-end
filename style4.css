@@ -19,9 +19,9 @@
   flex-direction: row;  /* row(default) | low-reverse | column | column-reverse*/
   flex-wrap: wrap; /* nowrap(default) | wrap | wrap-reverse*/
   /*flex-flow: ; /*<‘flex-direction’> || <‘flex-wrap’>*/
-  justify-content: center;/*flex-start(default) | flex-end | center | space-between | space-around*/
-  align-items: center;/*flex-start | flex-end | center | baseline | stretch(default)*/
-  align-content: center;/*flex-start | flex-end | center | space-between | space-around | stretch(default)*/
+  /*justify-content: center;/*flex-start(default) | flex-end | center | space-between | space-around*/
+  /*align-items: center;/*flex-start | flex-end | center | baseline | stretch(default)*/
+  /*align-content: center;/*flex-start | flex-end | center | space-between | space-around | stretch(default)*/
 }
 .item {
     font-size: 20px;
