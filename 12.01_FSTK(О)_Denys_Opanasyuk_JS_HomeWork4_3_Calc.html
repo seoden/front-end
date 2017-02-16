@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12.01_FSTK(О)_Denys_Opanasyuk_JS_HomeWork4_3_Calc</title>
+</head>
+<body>
+
+<form name="myCalc">
+    <label for="num1">Первое число</label>
+    <input type="text" id="num1" name="num1"><br />
+    <label for="num2">Первое число</label>
+    <input type="text" id="num2" name="num2"><br />
+    <label for="oper">Оператор</label>
+    <select name="oper" id="oper">
+        <option value="">Выберите действие</option>
+        <option value="+">Сумма</option>
+        <option value="-">Вычетание</option>
+        <option value="*">Умножение</option>
+        <option value="/">Деление</option>
+        <option value="%">Остаток от деления</option>
+        <option value="^">Степень</option>
+    </select><br />
+    <input type="submit" value="Считать" onClick="calcClick();"><br />
+</form>
+
+<div id="message"></div>
+
+
+
+
+<script>
+function calcClick(){
+    var num1 = '';
+    var num2 = '';
+    var operand = '';
+    var res = "";
+
+    num1 = +document.myCalc.num1.value;
+    num2 = +document.myCalc.num2.value;
+    operand = document.myCalc.oper.value;
+
+
+
+if (num1 != '' && num2 != ''){
+    if (operand == "+"){res = num1+num2; alert(num1+" + "+num2+" = "+ res);}
+    if (operand == "-"){res = num1-num2; alert(num1+" - "+num2+" = "+ res);}
+    if (operand == "*"){res = num1*num2; alert(num1+" * "+num2+" = "+ res);}
+
+    if (operand == "/"){res = num1/num2; alert(num1+" / "+num2+" = "+ res);}
+    if (operand == "%"){res = num1%num2; alert(num1+" % "+num2+" = "+ res);}
+    if (operand == "^"){res = Math.pow(num1, num2); alert(num1+" ^ "+num2+" = "+ res);}
+} else if (operand == "/" && num1 == "" || num1 == ""){
+    alert('Делить на ноль нельзя!');
+} else {
+    //document.getElementById('message').innerHTML = 'Вы не ввели число!';
+    alert('Вы не ввели число!');
+}
+
+}
+
+</script>
+
+
+
+</body>
+</html>

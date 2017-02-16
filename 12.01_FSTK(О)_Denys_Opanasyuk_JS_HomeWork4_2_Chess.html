@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12.01_FSTK(О)_Denys_Opanasyuk_JS_HomeWork4_2_Chess</title>
+    <style>
+        .chess {
+            width: 240px;
+            height: 240px;
+        }
+        .cell {
+            width: 30px;
+            height: 30px;
+            float: left;
+        }
+        .cell.black {
+            background: #000;
+        }
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="chess">
+<script>
+    for (var i=0; i<8; i++){
+        for (var j=0; j<8; j++){
+
+                if (i % 2 != 0){
+                    if(j % 2 != 0){
+                        document.write('<div class="cell"></div>');
+                    }
+                    else {
+                        document.write('<div class="cell black"></div>');
+                    }
+
+                } else {
+                    if(j % 2 != 0){
+                        document.write('<div class="cell black"></div>');
+                    }
+                    else {
+                        document.write('<div class="cell"></div>');
+                    }
+
+                }
+            var cell = document.getElementsByClassName('cell');
+            if (j == 8 ){
+                cell.className += " clear";
+                cell.classList.add(" clear");
+            }
+        }
+    }
+
+</script>
+</div>
+</body>
+</html>
