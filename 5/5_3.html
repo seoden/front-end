@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var persons = [];
+    var person = {
+        name: '',
+        sname: '',
+        age: ''
+    };
+    function ask() {
+        person.name = prompt("Введите свое имя:");
+        person.sname = prompt("Введите свою фамилию:");
+        person.age = prompt("Введите свой возраст:");
+        persons.push(person);
+    }
+    function say() {
+        document.write("Имя: " + person.name + "<br />");
+        document.write("Фамилия: " + person.sname + "<br />");
+        document.write("Возраст: " + person.age + "<br />");
+        document.write("<hr/>");
+    }
+    for(var i = 1; i <= 3; i++){
+        // Вызов функций.
+        ask();
+        say();
+    }
+</script>
+
+</body>
+</html>

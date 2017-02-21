@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12.01_FSTK(О)_Denys_Opanasyuk_JS_HomeWork5_1_Calc</title>
+</head>
+<body>
+
+<form name="myCalc">
+    <label for="num1">Первое число</label>
+    <input type="text" id="num1" name="fnum1"><br />
+    <label for="num2">Первое число</label>
+    <input type="text" id="num2" name="fnum2"><br />
+    <label for="oper">Оператор</label>
+    <select name="oper" id="oper">
+        <option value="">Выберите действие</option>
+        <option value="+">Сумма</option>
+        <option value="-">Вычетание</option>
+        <option value="*">Умножение</option>
+        <option value="/">Деление</option>
+        <option value="%">Остаток от деления</option>
+        <option value="^">Степень</option>
+    </select><br />
+    <input type="submit" value="Считать" onClick="calcClick();"><br />
+</form>
+
+
+<script>
+    function calcClick(){
+        var res = "";
+        var num1 = +document.myCalc.fnum1.value;
+        var num2 = +document.myCalc.fnum2.value;
+        var operand = document.myCalc.oper.value;
+
+        if (num1 != '' && num2 != ''){
+            switch (operand){
+                case ('+'):
+                    res = num1+num2; alert(num1+" + "+num2+" = "+ res);
+                    break;
+                case ('-'):
+                    res = num1-num2; alert(num1+" - "+num2+" = "+ res);
+                    break;
+                case ('*'):
+                    res = num1*num2; alert(num1+" * "+num2+" = "+ res);
+                    break;
+                case ('/'):
+                    res = num1/num2; alert(num1+" / "+num2+" = "+ res);
+                    break;
+                case ('%'):
+                    res = num1%num2; alert(num1+" % "+num2+" = "+ res);
+                    break;
+                case ('^'):
+                    res = Math.pow(num1, num2); alert(num1+" ^ "+num2+" = "+ res);
+                    break;
+            }
+
+        } else {
+            alert('Вы не ввели число!');
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
