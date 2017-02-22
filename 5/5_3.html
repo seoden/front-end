@@ -19,16 +19,22 @@
         persons.push(person);
     }
     function say() {
-        document.write("Имя: " + person.name + "<br />");
-        document.write("Фамилия: " + person.sname + "<br />");
-        document.write("Возраст: " + person.age + "<br />");
+        document.write("Имя: " + person.name + "<br/>");
+        document.write("Фамилия: " + person.sname + "<br/>");
+        document.write("Возраст: " + person.age + "<br/>");
         document.write("<hr/>");
     }
-    for(var i = 1; i <= 3; i++){
+    /*for(var i = 1; i <= 3; i++){
         // Вызов функций.
         ask();
         say();
-    }
+    }*/
+    do {
+        ask();
+        say();
+    } while(person.name != null || person.sname != null || person.age != null);
+
+
 </script>
 
 </body>
