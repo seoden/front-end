@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+<div id="menu" class="clearfix">
+    <ul>
+        <li><a id="addNew" onclick="addNew()" href="#">Add New</a></li>
+        <li><a id="addFilter" onclick="addFilter ()" href="#">Filter</a></li>
+    </ul>
+</div>
+<div id="filter"></div>
+<div id="result"></div>
+
+
+</div>
+
+<script>
+    var persons = [];
+    persons = [
+        {
+            name: 'Andry',
+            age: '25',
+            position: 'AAA',
+            langs: 'CSS'
+        },
+        {
+            name: 'Ted',
+            age: '32',
+            position: 'BBB',
+            langs: 'HTML'
+        },
+        {
+            name: 'Sam',
+            age: '27',
+            position: 'CCC',
+            langs: 'JS'
+        },
+        {
+            name: 'Tim',
+            age: '28',
+            position: 'DDD',
+            langs: 'JS, CSS'
+        },
+        {
+            name: 'Bob',
+            age: '33',
+            position: 'AAA',
+            langs: 'JS, CSS, HTML'
+        }
+    ];
+
+    var person = {
+        name: '',
+        age: '',
+        position: '',
+        langs: ''
+    };
+
+    function addUser() {
+        person = {};// new Object()
+        person.name = document.getElementById('fname').value;
+        person.age = +document.getElementById('age').value;
+        person.position = document.getElementById('position').value;
+        person.langs = document.getElementById('langs').value;
+
+        //console.log(person.age);
+
+        if (person.name == '' || person.age == '' || person.position == '' || person.langs == '') {
+            alert('Заполните все поля формы!');
+        } else if (isNaN(person.age)) {
+            alert('Поле Age должно быть числом!');
+        } else {
+        //console.log(persons.length);
+        //persons.push(person);
+        if (persons.push(person)) {
+            document.getElementById('fname').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('position').value = '';
+            document.getElementById('langs').value = '';
+            var addrow = document.getElementById('addrow');
+            addrow.classList.remove("ok");
+            addrow.innerHTML = '';
+        }
+        }
+        console.log(persons);
+    }
+
+    function addNew(){
+        var addrow = document.getElementById('addrow');
+        if (addrow.classList.contains('ok') === false){
+            addrow.classList.add("ok");
+        var arrInputs = ['fname','age','position','langs'];
+        var cell = document.createElement('td');
+        addrow.appendChild(cell);
+        for (var c = 0; c < arrInputs.length; c++) {
+            cell = document.createElement('td');
+            cell.innerHTML = '<input type="text" id="' + arrInputs[c] + '" name="' + arrInputs[c] + '">';
+            addrow.appendChild(cell);
+        }
+        cell = document.createElement('td');
+        cell.innerHTML = '<button onclick="addUser(); showPersons();">Add User</button>';
+        addrow.appendChild(cell);
+        }
+    }
+
+    function showTabHeader() {
+        var table = document.createElement('table');
+        var thead = document.createElement('thead');
+
+        table.setAttribute('id', 'table');
+        var arrHead = ['ID', 'Name', 'Age', 'Position', 'Langs', ''];
+
+        var arrInputs = [];
+        for (var item in persons['0']) {
+            arrInputs[arrInputs.length] = item;
+        }
+        //var arrInputs = ['name','age','position','langs'];
+        var row = document.createElement('tr');
+
+
+        table.appendChild(thead);
+        thead.appendChild(row);
+        for (var h = 0; h < arrHead.length; h++) {
+            var th = document.createElement('th');
+            if (h == 0 || h == arrHead.length-1){var arrows = '';}
+            else{
+                arrows = '<div class="sort_arows">';
+                arrows += '<a class="top_arow" href="#" onclick="sortStr(\''+String(arrInputs[h-1])+'\', true); showPersons();"></a>';
+                arrows += '<a class="bot_arow" href="#" onclick="sortStr(\''+String(arrInputs[h-1])+'\', false); showPersons();"></a>';
+                arrows += '</div>';
+            }
+            th.innerHTML = arrHead[h] + arrows;
+            row.appendChild(th);
+        }
+
+        row = document.createElement('tr');
+        row.id = 'addrow';
+        thead.appendChild(row);
+
+        var tbody = document.createElement('tbody');
+        tbody.id = 'tbody';
+        table.appendChild(tbody);
+
+        document.getElementById('result').appendChild(table);
+    }
+
+    var newArr = [];
+    var filterId;
+    function filter () {
+        var inpByName = document.getElementById('byName').value;
+        var inpByLangs = document.getElementById('byLangs').value;
+        newArr = [];
+
+        for (var i = 0; i < persons.length; i++) {
+            if (persons[i].name == inpByName || inpByName == '') {
+                var Langs = persons[i].langs.split(',');
+                var countLangs = Langs.length;
+                //console.log([i]+' - '+persons[i].name+': '+countLangs);
+                if (countLangs == inpByLangs || inpByLangs == '0') {
+                    person = {};// new Object()
+                    person.name = persons[i].name;
+                    person.age = persons[i].age;
+                    person.position = persons[i].position;
+                    person.langs = persons[i].langs;
+                    newArr.push(person);
+                }
+            }
+        }
+        filterId = 1;
+        //console.log(newArr);
+        return newArr;
+    }
+
+
+
+
+    function showPersons() {
+
+        if (filterId == '' || filterId == undefined){
+            var usersArray = [];
+            usersArray = persons;
+        } else if (filterId == 1) {
+            usersArray = [];
+            usersArray = newArr;
+            filterId = '';
+        }
+        //console.log(filterId);
+        //console.log(usersArray);
+
+        var tbody = document.getElementById('tbody');
+        tbody.innerHTML = '';
+
+        for (var r = 0; r < usersArray.length; r++) {
+            var row = document.createElement('tr');
+            tbody.appendChild(row);
+
+            var cell = document.createElement('td');
+            cell.innerHTML = r;
+            row.appendChild(cell);
+
+            for (var item in usersArray[r]) {
+                cell = document.createElement('td');
+                cell.innerHTML = usersArray[r][item];
+                row.appendChild(cell);
+            }
+
+            cell = document.createElement('td');
+            cell.innerHTML = '<button onclick="delUser('+r+'); showPersons();">Del User</button>';
+            row.appendChild(cell);
+
+        }
+        //document.getElementById('result').appendChild(table);
+    }
+
+    function delUser (id){
+        persons.splice(id, 1);
+        //console.log(persons);
+    }
+
+
+    function sortStr (coll,por){
+        if (filterId == '' || filterId == undefined){
+            var usersArray = [];
+            usersArray = persons;
+        } else if (filterId == 1) {
+            usersArray = [];
+            usersArray = newArr;
+        }
+
+        var cols = coll;
+        //console.log(cols);
+
+        var por = por;
+        if (por === true){
+            var x = 1;
+            var z = -1;
+        }
+        if (por === false){
+             x = -1;
+             z = 1;
+        }
+        //console.log('x = '+x, 'z = '+z);
+        //console.log(persons[0][cols]);
+        if (cols != 'age') {
+            usersArray.sort(function (a, b) {
+            if (a[cols] > b[cols]) {
+                return x;
+            }
+            if (a[cols] < b[cols]) {
+                return z;
+            }
+            // a должно быть равным b
+            return 0;
+        });
+        } else {
+            usersArray.sort(function (a, b) {
+                if (por === true){
+                    return b[cols] - a[cols]
+                } else {
+                    return a[cols] - b[cols]
+                }
+            });
+        }
+
+    }
+
+    function addFilter (){
+        var addfilter = document.getElementById('filter');
+        if (addfilter.classList.contains('ok') === false){
+            addfilter.classList.add("ok");
+            var filtImputs = '<div>Name: <input type="text" id="byName" name="byName"><br><br>';
+            filtImputs += 'Langs: <select name="byLangs" id="byLangs"><option value="0">Выберите число языков</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select><br><br>';
+            filtImputs += '<input type="hidden" id="action" name="action" value="1">';
+            filtImputs += '<button onclick="filter (); showPersons();">Filter</button> <button onclick="filterClear (); showPersons();">Clear</button></div>';
+            addfilter.innerHTML = filtImputs;
+        } else {
+            addfilter.classList.remove("ok");
+            addfilter.innerHTML = '';
+        }
+    }
+    function filterClear (){
+        document.getElementById('byName').value = '';
+        document.getElementById('byLangs').value = '0';
+    }
+
+
+
+
+
+(function (){
+    showTabHeader();
+    showPersons();
+
+    })();
+
+</script>
+</body>
+</html>
