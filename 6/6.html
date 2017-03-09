@@ -88,7 +88,8 @@
             addrow.innerHTML = '';
         }
         }
-        console.log(persons);
+        filterId = '';
+        //console.log(persons);
     }
 
     function addNew(){
@@ -183,12 +184,12 @@
     function showPersons() {
 
         if (filterId == '' || filterId == undefined){
-            var usersArray = [];
+            //var usersArray = [];
             usersArray = persons;
         } else if (filterId == 1) {
-            usersArray = [];
+            //usersArray = [];
             usersArray = newArr;
-            filterId = '';
+            filterId = '2';
         }
         //console.log(filterId);
         //console.log(usersArray);
@@ -225,10 +226,11 @@
 
 
     function sortStr (coll,por){
+
         if (filterId == '' || filterId == undefined){
             var usersArray = [];
             usersArray = persons;
-        } else if (filterId == 1) {
+        } else if (filterId == 2) {
             usersArray = [];
             usersArray = newArr;
         }
@@ -287,6 +289,7 @@
     function filterClear (){
         document.getElementById('byName').value = '';
         document.getElementById('byLangs').value = '0';
+        filterId = '';
     }
 
 
